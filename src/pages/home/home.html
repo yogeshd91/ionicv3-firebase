@@ -1,14 +1,24 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Firebase REST
     </ion-title>
+    <ion-buttons end>
+	    <button ion-button icon-only end (click)="addPlayer()">
+		  <ion-icon name="add"></ion-icon>
+		</button>
+	</ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+	<ion-list inset>
+		<ion-item *ngFor="let player of players" ion-long-press [interval]="400" (onPressing)="holdClick(player)">
+		   <ion-icon name="create" item-end (click)="update(player)"></ion-icon>
+		   <p>ID: <b>{{player.id}}</b></p>
+		   <p>Username: <b>{{player.data.username}}</b></p>
+		   <p>Password: <b>{{player.data.password}}</b></p>
+		   <p>Balance: <b>{{player.data.balance | number:'1.2-2' }}</b></p>
+		</ion-item>
+	</ion-list>
 </ion-content>

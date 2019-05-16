@@ -7,13 +7,22 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import { AddplayerPageModule } from '../pages/addplayer/addplayer.module';
+
+import { HttpClientModule } from '@angular/common/http';
+import { RestProvider } from '../providers/rest/rest';
+import { LongPressModule } from 'ionic-long-press';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage
   ],
   imports: [
+    AddplayerPageModule,
     BrowserModule,
+    HttpClientModule,
+    LongPressModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -24,6 +33,7 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
+    RestProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Add Player</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label>Username</ion-label>
+        <ion-input type="text" [(ngModel)]="user.username"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>          
+    <ion-item>
+        <ion-label>Balance</ion-label>
+        <ion-input type="text" [(ngModel)]="user.balance" disabled></ion-input>
+    </ion-item>   
+    <br>  
+    <button ion-button block (click)="savePlayerData()">Add New Player</button>
+</ion-content>
